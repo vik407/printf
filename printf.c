@@ -1,4 +1,20 @@
 #include "holberton.h"
+#include <string.h>
+#include <stdio.h>
+
+/**
+ * op_c - prints a char
+ * @c: char to print
+ *
+ * Return: always 1
+ */
+int op_c(va_list c)
+{
+	char ch = (char)va_arg(c, int);
+
+	_putchar(ch);
+	return (1);
+}
 
 /**
  * _printf - function that sends formatted output to stdout.
@@ -14,37 +30,54 @@ int _printf(const char *format, ...)
 {
 	va_list arg;
 	/* indexes */
-	int i, n = 0;
-	/* Function pointer */
-	int (*f)(va_list);
+	int i = 0, j = 0, counter = 0;
+	/* Function pointer 
+	int (*f)(va_list);*/
 
-	/* TODO - Create a function to handle only specifiers? */
 	forma_t p[] = {
 		{"c", op_c},
 		{NULL, NULL}
 	};
 
-	/* Validate if a format is comming */
-	if (!format)
-		return (-1);
-
 	va_start(arg, format);
 
-	i = 0;
-	while (format[i])
+	/* Validate if a format is comming */
+	if (format == NULL)
+			return (-1);
+
+	while (format[j] != '\0')
 	{
-		if (format[i] != '%')
+		if (format[j] == '%')
 		{
-			_putchar(format[i]);
-			n++;
+			i = 0;
+			/*while (p[i].f != NULL && format[j] != *(p[i].f))
+			{
+				printf("%s:%d\n",p[i].f,i);
+				i++;
+				printf("%s:%d\n",p[i].f,i);
+			}*/
+			if (p[i].f != NULL)
+			{
+				_putchar(i);
+				counter = counter + p[i].func(arg);
+			}
+			else
+			{
+				_putchar('2');
+				if (format[j] == '\0')
+						return (-1);
+				if(format[j] != '%')
+						counter += _putchar('%');
+				counter += _putchar(format[j]);
+			}
+			j++;
 		}
-		/* Send specifier to function pointer */
-		f = *p[i].f;
-		/* Check if coming NULL {NULL, NULL}*/
-
-		/* if not coming null Fire! */
-
+		else
+		{
+			counter += _putchar(format[j]);
+		}
+		j++;
 	}
 	va_end(arg);
-	return (n);
+	return (counter);	
 }
