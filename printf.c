@@ -16,6 +16,22 @@ int op_c(va_list c)
 	return (1);
 }
 
+int op_s(va_list s)
+{
+        int index;
+	int counter;
+
+        char* str = va_arg(s, char*);
+	if(str == NULL)
+	return (0);
+	for (counter = 0; str[counter] != '\0'; counter++)
+		;
+
+        for (index = 0; *(str + index); index++)
+                write (1, (str + index), 1);
+	return (counter);
+}
+
 /**
  * _printf - function that sends formatted output to stdout.
  * @format: This is the string that contains the text to be written to stdout.
@@ -31,11 +47,12 @@ int _printf(const char *format, ...)
 	va_list arg;
 	/* indexes */
 	int i = 0, j = 0, counter = 0;
-	/* Function pointer 
-	int (*f)(va_list);*/
-
+	/* Function pointer
+	   int (*f)(va_list);*/
+	char car;
 	forma_t p[] = {
 		{"c", op_c},
+		{"s", op_s},
 		{NULL, NULL}
 	};
 
@@ -43,41 +60,44 @@ int _printf(const char *format, ...)
 
 	/* Validate if a format is comming */
 	if (format == NULL)
-			return (-1);
-
-	while (format[j] != '\0')
+		return (-1);
+	car = format[j];
+	while (car != '\0')
 	{
-		if (format[j] == '%')
+		if (car == '%')
 		{
 			i = 0;
-			/*while (p[i].f != NULL && format[j] != *(p[i].f))
+			j++;
+			while (p[i].f != NULL && format[j] != *(p[i].f))
 			{
-				printf("%s:%d\n",p[i].f,i);
 				i++;
-				printf("%s:%d\n",p[i].f,i);
-			}*/
+			}
 			if (p[i].f != NULL)
 			{
 				_putchar(i);
 				counter = counter + p[i].func(arg);
+				i++;
 			}
 			else
 			{
-				_putchar('2');
-				if (format[j] == '\0')
-						return (-1);
-				if(format[j] != '%')
-						counter += _putchar('%');
-				counter += _putchar(format[j]);
+				if (car == '\0')
+				{
+					return (-1);
+				}
+				if(car != '%')
+				{
+					counter += _putchar('%');
+				}
+				counter += _putchar(car);
 			}
-			j++;
 		}
 		else
 		{
-			counter += _putchar(format[j]);
+			counter += _putchar(car);
 		}
 		j++;
+		car = format[j];
 	}
 	va_end(arg);
-	return (counter);	
+	return (counter);
 }

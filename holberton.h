@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
+#include <unistd.h>
 
 /**
  * struct formats - structre to handle the different formats
@@ -20,5 +22,6 @@ int _putchar(char c);
 
 /* Single prototypes as calc task */
 int op_c(va_list c);
+int op_s(va_list s);
 
 #endif
