@@ -18,17 +18,18 @@ int op_c(va_list c)
 
 int op_s(va_list s)
 {
-        int index;
+	int index;
 	int counter;
 
-        char* str = va_arg(s, char*);
-	if(str == NULL)
+	char *str = va_arg(s, char*);
+
+	if (str == NULL)
 	return (0);
 	for (counter = 0; str[counter] != '\0'; counter++)
 		;
 
-        for (index = 0; *(str + index); index++)
-                write (1, (str + index), 1);
+	for (index = 0; *(str + index); index++)
+		write(1, (str + index), 1);
 	return (counter);
 }
 
@@ -45,10 +46,12 @@ int op_s(va_list s)
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	/* indexes */
+
 	int i = 0, j = 0, counter = 0;
-	/* Function pointer
-	   int (*f)(va_list);*/
+	/**
+	 *Function pointer
+	 * int (*f)(va_list);
+	 */
 	char car;
 	forma_t p[] = {
 		{"c", op_c},
@@ -84,7 +87,7 @@ int _printf(const char *format, ...)
 				{
 					return (-1);
 				}
-				if(car != '%')
+				if (car != '%')
 				{
 					counter += _putchar('%');
 				}
