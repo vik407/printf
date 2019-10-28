@@ -19,6 +19,7 @@ typedef struct formats
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+int format_h(const char *format, forma_t *stc_ar, va_list arg);
 
 /* Single prototypes as calc task */
 int op_c(va_list c);
