@@ -23,5 +23,6 @@ int op_s(va_list s)
 
 	for (index = 0; *(str + index); index++)
 		write(1, (str + index), 1);
+
 	return (counter);
 }

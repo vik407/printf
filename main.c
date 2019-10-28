@@ -9,9 +9,9 @@
  */
 int main(void)
 {
-	int len;
+	/**int len;
 	int len2;
-	/**unsigned int ui;
+	unsigned int ui;
 	void *addr;*/
 
 	/**len = _printf("Let's try to printf a simple sentence.\n");
@@ -37,16 +37,18 @@ int main(void)
 	_printf("String:[%s]\n", NULL);
 	printf("String:[%s]\n", NULL);
 	/**_printf("Address:[%p]\n", addr);
-	   printf("Address:[%p]\n", addr);**/
+	   printf("Address:[%p]\n", addr);
 	len = _printf("Percent:[%%]\n");
 	len2 = printf("Percent:[%%]\n");
-	_printf("Len:[%d]\n", len);
-	printf("Len:[%d]\n", len2);
+	printf("Len:[%d]\n", len);
+	printf("Len:[%d]\n", len2);**/
 	_printf("test %c\n", (char*)0);
 	printf("test %c\n", (char*)0);
+	_printf("Percent:[%%]\n");
+	printf("Percent:[%%]\n");
 	_printf("%");
 	printf("%");
-	/**_printf("Unknown:[%r]\n");
-	printf("Unknown:[%r]\n");**/
+	_printf("Unknown:[%r]\n");
+	printf("Unknown:[%r]\n");
 	return (0);
 }

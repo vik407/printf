@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 /**
- * op_c - prints a char
- * @c: char to print
+ * op_c - Prints a char.
+ * @c: Char to print.
  *
  * Return: always 1
  */

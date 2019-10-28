@@ -12,12 +12,12 @@ int _printf(const char *format, ...)
 	forma_t p[] = {{"c", op_c}, {"s", op_s}, {NULL, NULL}};
 
 	va_start(arg, format);
-	if (format == NULL)
+	if (!format)
 		return (-1);
 	car = format[j];
-	while (car != '\0')
+	while (format[j])
 	{
-		if (car == '%')
+		if (format[j] == '%')
 		{
 			i = 0;
 			j++;
@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 					return (-1);
 				if (car != '%')
 					counter += _putchar('%');
-				counter += _putchar(car);
+				counter += _putchar(format[j]);
 			}
 		} else
 		{
