@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 				i++;
 			} else
 			{
-				if (car == '\0')
+				if (car == '\0' || format[1] == '\0')
 					return (-1);
 				if (car != '%')
 					counter += _putchar('%');

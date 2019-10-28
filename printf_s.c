@@ -17,7 +17,7 @@ int op_s(va_list s)
 	char *str = va_arg(s, char*);
 
 	if (str == NULL)
-		return (0);
+		str = "(null)";
 	for (counter = 0; str[counter] != '\0'; counter++)
 		;
 

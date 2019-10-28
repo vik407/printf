@@ -30,14 +30,22 @@ int main(void)
 	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);**/
 	_printf("Character:[%c]\n", 'H');
 	printf("Character:[%c]\n", 'H');
+	_printf("Character:[%c]\n");
+	printf("Character:[%c]\n");
 	_printf("String:[%s]\n", "I am a string !");
 	printf("String:[%s]\n", "I am a string !");
+	_printf("String:[%s]\n", NULL);
+	printf("String:[%s]\n", NULL);
 	/**_printf("Address:[%p]\n", addr);
 	   printf("Address:[%p]\n", addr);**/
 	len = _printf("Percent:[%%]\n");
 	len2 = printf("Percent:[%%]\n");
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
+	_printf("test %c\n", (char*)0);
+	printf("test %c\n", (char*)0);
+	_printf("%");
+	printf("%");
 	/**_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");**/
 	return (0);
