@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 	va_list arg;
 	int i = 0, j = 0, counter = 0;
 	char car;
-	forma_t p[] = {{"c", op_c}, {"s", op_s}, {"d", op_d}, {NULL, NULL}};
+	forma_t p[] = {{"c", op_c}, {"s", op_s}, {NULL, NULL}};
 
 	va_start(arg, format);
 	if (!format)

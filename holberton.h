@@ -23,5 +23,6 @@ int _putchar(char c);
 /* Single prototypes as calc task */
 int op_c(va_list c);
 int op_s(va_list s);
-
+int rangeof(int n);
+int op_d(va_list d);
 #endif
