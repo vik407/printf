@@ -24,5 +24,6 @@ int format_h(const char *format, forma_t *stc_ar, va_list arg);
 /* Single prototypes as calc task */
 int op_c(va_list c);
 int op_s(va_list s);
-
+int rangeof(int n);
+int op_d(va_list d);
 #endif

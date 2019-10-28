@@ -53,8 +53,10 @@ dkms.conf
 
 # Printf files
 main.c
+printf
 a.out
 *.c~
 *.c#
+#*.c#
 *.err
 _1*.c
