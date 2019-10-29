@@ -38,17 +38,26 @@ int main(void)
 	printf("String:[%s]\n", NULL);
 	/*_printf("Address:[%p]\n", addr);
 	  printf("Address:[%p]\n", addr);*/
-	len = _printf("PPercent:[%%]\n");
+	len = _printf("Percent:[%%]\n");
 	len2 = printf("Percent:[%%]\n");
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
-	_printf("test %c\n", (char*)0);
-	printf("test %c\n", (char*)0);
 	_printf("Percent:[%%]\n");
-	printf("Printf:[%%]\n");
-	_printf("%");
-	printf("%");
+	printf("Percent:[%%]\n");
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");
+	printf("- - - - - - - - - - - - - \n");
+	_printf("%");
+	printf("%");
+	printf("- - - - - - - - - - - - - \n");
+	_printf("%s\n", NULL);
+	printf("%s", NULL);
+	printf("- - - - - - - - - - - - - \n");
+	len = _printf(NULL);
+	len = printf(NULL);
+	printf("- - - - - - - - - - - - - \n");
+	len = _printf("%yd\n");
+	len = printf("%yd\n");
+	printf("- - - - - - - - - - - - - \n");
 	return (0);
 }

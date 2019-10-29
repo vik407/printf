@@ -28,13 +28,12 @@ int format_h(const char *format, forma_t *stc_ar, va_list arg)
 					{
 						k += _putchar('%');
 						j++;
-					}
-					else
+					} else
+					{
 						k += _putchar(format[j]);
+					}
 				}
-				}
-			}
-		else
+			} else
 			{
 				k += _putchar(format[j]);
 			}
