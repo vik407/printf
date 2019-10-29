@@ -1,0 +1,61 @@
+.TH _printf 3
+
+.SH NAME
+
+	_printf - Produces output according to a format.
+
+.SH SYNOPSIS
+
+.B	#include "holberton.h"
+
+\fB	int _printf(const char *format, ...);
+\fB	int _putchar(char c);
+\fB	int format_h(const char *format, forma_t *stc_ar, va_list arg);
+\fB	int op_c(va_list c);
+\fB	int op_s(va_list s);
+\fB	int rangeof(int n);
+\fB	int rangeofInt(int n);
+\fB	int op_d(va_list d);
+\fB	int op_i(va_list n);
+\fB	int powten(int n);
+
+.SH DESCRIPTION
+
+	This is a customized version of printf function. As you may know, the
+	functions in the printf family produce output according to a
+	format. The function printf write output to to the given output stream.
+	Printf function write the output under the control of a format string
+	that specifies how subsequent arguments (or arguments accessed via the
+	variable-length argument facilities of stdarg(3)) are
+       	converted for output.
+
+.SH RETURN VALUE
+    	Upon successful return, this function return the number of
+        characters printed (excluding the null byte used to end output to
+        strings).
+
+.SH EXAMPLE
+
+	To print Pi to five decimal places:
+	#include <math.h>
+	#include "holberton.h"
+
+	fprintf(stdout, "pi = %.5f\n", 4 * atan(1.0));
+	To print a date and time in the form "Sunday, July 3, 10:02", where
+	weekday and month are pointers to strings:
+	#include <stdio.h>
+
+	fprintf(stdout, "%s, %s %d, %.2d:%.2d\n",
+                   weekday, month, day, hour, min);
+
+.SH SEE ALSO
+
+	printf(1), echo(2), 3printf(3), scanf(4)
+
+.SH AUTHOR
+
+	Mauricio Drada Dávila
+	@drada_mauricio
+
+	Víctor Hugo Hernández
+	@vik407
