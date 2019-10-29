@@ -9,29 +9,35 @@
  */
 int op_i(va_list n)
 {
-	int a, k, p10 = 1, len = 0;
+	int a, p10 = 1, len = 0, i, j;
+	unsigned int res, res1;
 
 	a = va_arg(n, int);
-	k = a;
+	/* Menos de 0 es negativo */
 	if (a < 0)
 	{
 		len = len + _putchar('-');
-		p10 = p10 * -1;
+		res = a * -1;
 	}
-	while (k > 9 || k < -9)
-	{
-		k = k / 10;
-		p10 *= 10;
-	}
-	while (p10 > 9 || p10 < -9)
-	{
-		_putchar((a / p10) % 10 + '0');
-		p10 = p10 / 10;
-		len++;
-	}
-	if (a < 0)
-		_putchar((a % 10) * -1 + '0');
 	else
-		_putchar((a % 10) + '0');
-	return (len + 1);
+		res = a;
+	res1 = res;
+	/* Potencia 10 */
+	i = 0;
+	while (res1 > 9)
+	{
+		p10 *= 10;
+		res1 /= 10;
+		i++;
+	}
+	j = 0;
+	/* Mientras p10 es diferente de 0 */
+	while (j <= i)
+	{
+		len = len + _putchar(res / p10 + '0');
+		res = res % p10;
+		p10 = p10 / 10;
+		j++;
+	}
+	return (len);
 }
