@@ -1,55 +1,39 @@
 #include "holberton.h"
 #include <string.h>
 #include <stdio.h>
-/**
- * powten - quick power of ten implementation
- * @n: exponent
- * Return: returns ten to exponent power
- */
-int powten(int n)
-{
-	int retval;
 
-	retval = 10;
-	while (n > 0)
-	{
-		retval *= 10;
-		n--;
-	}
-	return (retval);
-}
 /**
  * print_number - prints integers enters as parameters using putchar
  * @n: integer to print
  * Return: void
  */
-int op_i(int n)
+int op_i(va_list n)
 {
-	int sign, power, count;
+	int a, p10 = 1, len = 0;
+	unsigned int res;
 
-	sign = 1;
-	count = 0;
-	power = powten(8);
-	if (n > 0)
+	a = va_arg(n, int);
+	/* Menos de 0 es negativo */
+	if (a < 0)
 	{
-		n = n * -1;
-		sign = sign * -1;
-	}
-	if (n != 0)
-	{
-		while (n / power == 0)
-			power /= 10;
-		if (sign == 1)
-			_putchar('-');
-		while (power >= 1)
-		{
-			_putchar(-(n / power) + '0');
-			n %= power;
-			power /= 10;
-			count++;
-		}
+		len = len + _putchar('-');
+		res = a * -1;
 	}
 	else
-		_putchar('0');
-	return (count);
+		res = a;
+	/* Potencia 10 */
+	while (res / p10 > 9)
+		p10 *= 10;
+	/* Mientras p10 es diferente de 0 */
+	while (p10 != 0)
+	{
+		len = len + _putchar(res / p10 + '0');
+		/* Todo tan chévere hasta error de puntero aquí me puede el conocimiento
+		* printf_i.c:30:5: error: assignment makes pointer from integer
+		* without a cast [-Werror] -> n = res % p10;*/
+		n = res % p10;
+		/* Posicionar https://www.helpingwithmath.com/by_subject/decimals/powers-of-10-5nbt2.htm */
+		p10 = p10 / 10;
+	}
+	return (len);
 }

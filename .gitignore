@@ -57,6 +57,6 @@ printf
 a.out
 *.c~
 *.c#
-#*.c#
+^#*.c#
 *.err
 _1*.c
