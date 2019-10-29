@@ -23,11 +23,12 @@ int powten(int n)
  * @n: integer to print
  * Return: void
  */
-void print_number(int n)
+int op_i(int n)
 {
-	int sign, power;
+	int sign, power, count;
 
 	sign = 1;
+	count = 0;
 	power = powten(8);
 	if (n > 0)
 	{
@@ -45,8 +46,10 @@ void print_number(int n)
 			_putchar(-(n / power) + '0');
 			n %= power;
 			power /= 10;
+			count++;
 		}
 	}
 	else
 		_putchar('0');
+	return (count);
 }
