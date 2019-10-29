@@ -3,31 +3,35 @@
 #include <stdio.h>
 
 /**
- * print_number - prints integers enters as parameters using putchar
+ * op_i - prints integers using putchar
  * @n: integer to print
  * Return: void
  */
 int op_i(va_list n)
 {
-	int a, p10 = 1, len = 0, res;
+	int a, k, p10 = 1, len = 0;
 
 	a = va_arg(n, int);
+	k = a;
 	if (a < 0)
 	{
 		len = len + _putchar('-');
-		a = a * -1;
+		p10 = p10 * -1;
 	}
-	else
-		a = a;
-	while (a / p10 > 9)
-		p10 *= 10;
-	while (p10 != 0)
+	while (k > 9 || k < -9)
 	{
-		len = len + 1;
-		res = a / p10;
-		a = a % p10;
-		_putchar(res + '0');
-		p10 = p10 / 10;
+		k = k / 10;
+		p10 *= 10;
 	}
-	return (len);
+	while (p10 > 9 || p10 < -9)
+	{
+		_putchar((a / p10) % 10 + '0');
+		p10 = p10 / 10;
+		len++;
+	}
+	if (a < 0)
+		_putchar((a % 10) * -1 + '0');
+	else
+		_putchar((a % 10) + '0');
+	return (len + 1);
 }
