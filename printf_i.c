@@ -2,40 +2,51 @@
 #include <string.h>
 #include <stdio.h>
 /**
- *rangeof - Recognize a value to print.
- *@n: Number to convert.
- *Return: An integer.
+ * powten - quick power of ten implementation
+ * @n: exponent
+ * Return: returns ten to exponent power
  */
-int rangeofInt(int n)
+int powten(int n)
 {
-	int number = n;
-	char digit, negative = '-';
+	int retval;
 
-	if (number < 0)
+	retval = 10;
+	while (n > 0)
 	{
-		number = -number;
-		write(1, &negative, 1);
+		retval *= 10;
+		n--;
 	}
-
-	if (number / 10 > 0)
-		rangeof(number / 10);
-	digit = (number % 10) + '0';
-	write(1, &digit, 1);
-	return (number);
+	return (retval);
 }
-
 /**
- *op_d - Prints a integer.
- *@d: Character to integer.
- *Return: An integer.
+ * print_number - prints integers enters as parameters using putchar
+ * @n: integer to print
+ * Return: void
  */
-
-int op_i(va_list d)
-
+void print_number(int n)
 {
-	int a;
+	int sign, power;
 
-	a = va_arg(d, int);
-	rangeof(a);
-	return (0);
+	sign = 1;
+	power = powten(8);
+	if (n > 0)
+	{
+		n = n * -1;
+		sign = sign * -1;
+	}
+	if (n != 0)
+	{
+		while (n / power == 0)
+			power /= 10;
+		if (sign == 1)
+			_putchar('-');
+		while (power >= 1)
+		{
+			_putchar(-(n / power) + '0');
+			n %= power;
+			power /= 10;
+		}
+	}
+	else
+		_putchar('0');
 }

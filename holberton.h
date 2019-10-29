@@ -27,5 +27,6 @@ int op_s(va_list s);
 int rangeof(int n);
 int rangeofInt(int n);
 int op_d(va_list d);
-int op_i(va_list d);
+void print_number(int n);
+int powten(int n);
 #endif
