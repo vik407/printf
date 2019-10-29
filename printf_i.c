@@ -31,7 +31,7 @@ int op_i(va_list n)
 		/* Todo tan chévere hasta error de puntero aquí me puede el conocimiento
 		* printf_i.c:30:5: error: assignment makes pointer from integer
 		* without a cast [-Werror] -> n = res % p10;*/
-		n = res % p10;
+		a = res % p10;
 		/* Posicionar https://www.helpingwithmath.com/by_subject/decimals/powers-of-10-5nbt2.htm */
 		p10 = p10 / 10;
 	}
