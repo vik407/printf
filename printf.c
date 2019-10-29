@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	forma_t p[] = {
 		{"c", op_c},
 		{"s", op_s},
-		{"d", op_d},
+		{"d", op_i},
 		{"i", op_i},
 		{NULL, NULL}
 		};
