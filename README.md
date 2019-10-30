@@ -50,3 +50,12 @@ printf_i.c: Prints an integer.
 printf_s.c: Prints a string.
 
 _format_handler.c: Function to handler specifiers.
+
+The code will compile by using:
+
+gcc -Wall -Wextra -Werror -pedantic -Wno-format *.c
+
+USAGE:
+
+_printf("%d format %s\n",1,  "string");
+output: 1 format string
